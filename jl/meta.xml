@@ -1,0 +1,21 @@
+<meta>
+    <info author="Jaysds1" name="Jay Login" description="Login, Register and auto login!" version="31.0.0" type="misc" />
+    <script src="client.lua" type="client" />
+    <script src="server.lua" type="server" />
+    
+    <!-- IMAGES -->
+    <!--<file src=".png" />-->
+    <file src="example.png" />
+	<settings>
+		<setting name="@picShow" value="false" accept="true,false" />
+		<setting name="@picPath" value="example.png" />
+	</settings>
+	
+	<oop>true</oop>
+	<aclrequest>
+		<right name="function.addAccount" access="true"/>
+		<right name="function.logIn" access="true"/>
+		<right name="function.logOut" access="true"/>
+		<right name="function.callRemote" access="true"/>
+	</aclrequest>
+</meta>
