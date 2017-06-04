@@ -4,17 +4,17 @@ thisResource = thisResource or getThisResource
 addEventHandler("onResourceStart",resourceRoot,function(res)
 	if(res~=thisResource)then return end
 	if(
-		not ACL.hasObjectPermissionTo(thisResource,"function.addAccount") or
-		not ACL.hasObjectPermissionTo(thisResource,"function.logIn") or 
-		not ACL.hasObjectPermissionTo(thisResource,"function.logOut")
+		not ACL:hasObjectPermissionTo(thisResource,"function.addAccount") or
+		not ACL:hasObjectPermissionTo(thisResource,"function.logIn") or 
+		not ACL:hasObjectPermissionTo(thisResource,"function.logOut")
 	)then
 		outputDebugString("Resource requires permission!")
 		cancelEvent(true,"Resource requires permission!")
 		return
 	end
 	for _,v in ipairs(getElementsByType("player"))do
-		if not v.account.isGuest()then
-			v.logOut()
+		if not v.account:isGuest()then
+			v:logOut()
 		end
 		triggerClientEvent(v,"JW.Services",v,"pic",get("@jl.picShow"),get("@jl.picPath"))
 	end
@@ -49,25 +49,22 @@ addEventHandler("JW.Services",root,function(typ,user,pass,email)
 			triggerClientEvent(client,"JW.Services",client,"failed","Account exists!")
 		else
 			for _,v in ipairs(getAccounts())do
-				if v.getData("Email")==email then
+				if v:getData("Email")==email then
 					triggerClientEvent(client,"JW.Services",client,"failed","Email Already Used!")
 					return
 				end
 			end
 			acc=Account.add(user,pass)
 			if acc then
-				acc.setData("Email",email)
-				acc.setData("Password",pass)
-				client.logIn(acc,pass)
+				acc:setData("Email",email)
+				acc:setData("Password",pass)
+				client:logIn(acc,pass)
 				triggerClientEvent(client,"JW.Services",client,"success","Successfully Registered and Logged-In!")
-				if dbs then
-					dbExec(dbs,"INSERT INTO accounts VALUES(?,?,?)",user,pass,email)
-				end
 			end
 		end
 	elseif typ=="autologin" then
 		if acc then
-			if client.logIn(acc,pass)then
+			if client:logIn(acc,pass)then
 				triggerClientEvent(client,"JW.Services",client,"success","Successfully Logged-In! \nTo remove the autologin, type in '/ral' ","command")
 				triggerEvent("onPlayerAutoLogin",client)
 			else
@@ -76,17 +73,17 @@ addEventHandler("JW.Services",root,function(typ,user,pass,email)
 		else
 			triggerClientEvent(client,"JW.Services",client,"failed","Account doesn't exist!")
 		end
-	elseif typ=="email"then
+	--[[elseif typ=="email"then
 		local len = email:len()
 		if not email:find("@",1,true)then
-			triggerClientEvent(client,"JW.Services",client,"failed","'@' is not located in your email.")
+			triggerClientEvent(client,"JW.Services",client,"failed","Invalid email entered!")
 			return
 		end
 		local emailExist = false
 		for _,v in ipairs(getAccounts())do
-			if v.getData("Email")==email then
+			if v:getData("Email")==email then
 				emailExist = true
-				user = v.getName()
+				user = v:getName()
 				pass = getAccountPassword(v,user)
 				break;
 			else
@@ -97,17 +94,16 @@ addEventHandler("JW.Services",root,function(typ,user,pass,email)
 			triggerClientEvent(client,"JW.Services",client,"failed","Email doesn't exist in our Database!")
 		else
 			triggerClientEvent(client,"JW.Services",client,output,"Username and Password was sent to your email!")
-			callRemote("http://jworld137.site11.com/mta/sdk/email.php",result,email,getServerName(),user,pass)
-		end
+		end]]
 	end
 end)
 
-function getAccountPassword(theAccount,theUsername)
+--[[function getAccountPassword(theAccount,theUsername)
 	if Account(theUsername)==theAccount then
 		return theAccount.getData("Password")
 	end
 	return false
-end
+end]]
 
 addEventHandler("onPlayerLogout",root,function()
 	triggerClientEvent(source,"JW.Services",source,"login","Successfully Logged-Out!")
