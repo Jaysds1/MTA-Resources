@@ -1,9 +1,11 @@
 <meta>
-	<info name="JEngine" author="Jaysds1" type="misc" description="Turns the vehicle On when the player enters and Turns the vehicle Off when they leave" version="4.0.1" />
+	<info name="JEngine" author="Jaysds1" type="misc" description="Turns the vehicle On when the player enters and Turns the vehicle Off when they leave" version="5.0.0" />
 	<script src="server.lua" />
 	
 	<settings>
 		<setting name="@engineKey" value="k" friendlyname="Engine Key" accept="q,w,e,r,t,y,u,i,o,p,[,],a,s,d,f,g,h,j,k,l,;,',z,x,c,v,b,n,m,.,/" desc="The key used to turn on/off the engine." />
 		<setting name="@lightKey" value="l" friendlyname="Light Key" accept="q,w,e,r,t,y,u,i,o,p,[,],a,s,d,f,g,h,j,k,l,;,',z,x,c,v,b,n,m,.,/" desc="The key used to turn on/off the light." />
 	</settings>
+	
+	<oop>true</oop>
 </meta>
