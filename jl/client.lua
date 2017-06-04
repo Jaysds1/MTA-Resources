@@ -50,7 +50,7 @@ function normalWin()
 	Password = GuiEdit(130, 123, 113, 20, "", false,LoginPanel)
 	Password:setMasked(true)
 
-	Forgot = GuiButton(150, 193, 75, 23, "Forgot?", false,LoginPanel)
+	--Forgot = GuiButton(150, 193, 75, 23, "Forgot?", false,LoginPanel)
 
 	UsernameSave = GuiCheckBox(250, 73, 51, 17, "Save", false, false,LoginPanel)
 	PasswordSave = GuiCheckBox(250, 123, 70, 17, "Save", false, false,LoginPanel)
@@ -150,8 +150,8 @@ addEventHandler("onClientGUIClick",guiRoot,function(btn)
 			Username:setText(localPlayer.name)
 		elseif(source==Masked)then
 			Password:setMasked(Masked:getSelected())
-		elseif(source==Forgot)then
-			showOpt("forgot")
+		--[[elseif(source==Forgot)then
+			showOpt("forgot")]]
 		end
 	end
 end,true)
