@@ -1,26 +1,26 @@
 addEvent("onPlayerAutoLogin")
-thisResource = thisResource or getThisResource
+addEvent("JW.Services",true)
+thisResource = thisResource or getThisResource()
 
 addEventHandler("onResourceStart",resourceRoot,function(res)
 	if(res~=thisResource)then return end
 	if(
-		not ACL:hasObjectPermissionTo(thisResource,"function.addAccount") or
-		not ACL:hasObjectPermissionTo(thisResource,"function.logIn") or 
-		not ACL:hasObjectPermissionTo(thisResource,"function.logOut")
+		not ACL.hasObjectPermissionTo(thisResource,"function.addAccount") or
+		not ACL.hasObjectPermissionTo(thisResource,"function.logIn") or 
+		not ACL.hasObjectPermissionTo(thisResource,"function.logOut")
 	)then
 		outputDebugString("Resource requires permission!")
 		cancelEvent(true,"Resource requires permission!")
 		return
 	end
-	for _,v in ipairs(getElementsByType("player"))do
+	for _,v in ipairs(Element.getAllByType("player"))do
 		if not v.account:isGuest()then
 			v:logOut()
 		end
-		triggerClientEvent(v,"JW.Services",v,"pic",get("@jl.picShow"),get("@jl.picPath"))
+		Timer(triggerClientEvent,3000,1,v,"JW.Services",v,"pic",get("@jl.picShow"),get("@jl.picPath"))
 	end
 end)
 
-addEvent("JW.Services",true)
 addEventHandler("JW.Services",root,function(typ,user,pass,email)
 	if typ=="Login" or typ=="Register" then
 		if user=="" or pass=="" then
@@ -31,12 +31,12 @@ addEventHandler("JW.Services",root,function(typ,user,pass,email)
 			end
 			return
 		end
-		acc = user.account
+		acc = Account(user)
 	end
 	
 	if typ=="Login" then
 		if acc then
-			if client.logIn(acc,pass)then
+			if client:logIn(acc,pass)then
 				triggerClientEvent(client,"JW.Services",client,"success","Successfully Logged-In!")
 			else
 				triggerClientEvent(client,"JW.Services",client,"failed","Wrong Password!")
@@ -48,7 +48,7 @@ addEventHandler("JW.Services",root,function(typ,user,pass,email)
 		if acc then
 			triggerClientEvent(client,"JW.Services",client,"failed","Account exists!")
 		else
-			for _,v in ipairs(getAccounts())do
+			for _,v in ipairs(Account.getAll())do
 				if v:getData("Email")==email then
 					triggerClientEvent(client,"JW.Services",client,"failed","Email Already Used!")
 					return
@@ -110,7 +110,7 @@ addEventHandler("onPlayerLogout",root,function()
 end)
 
 addEventHandler("onPlayerChat",root,function()
-	local acc = source.getAccount()
+	local acc = source.account
 	if acc.isGuest() or not acc then
 		cancelEvent(true,"YOU HAVE TO BE LOGGED-IN TO CHAT!")
 		outputChatBox("YOU HAVE TO BE LOGGED-IN TO CHAT!",source,255,0,0)

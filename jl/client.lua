@@ -1,12 +1,16 @@
+addEvent("JW.Services",true)
+thisResource = thisResource or getThisResource()
+
 local screenWidth, screenHeight = guiGetScreenSize() --Get User Screen
 local left,top = screenWidth/2 - 382/2,screenHeight/2 - 275/2 --X,Y position of window
 local isNormal,isLogin
 local pic = false
 
+
 addEventHandler("onClientResourceStart",resourceRoot,function(res) --Called when resource starts
-	if res~=getThisResource() then return end
+	if res~=thisResource then return end
 	normalWin() --Create the Normal GUI Window
-	local xml=XML:load("@JW.xml") --xmlLoadFile("@JW.xml") Load User Data
+	local xml = XML.load("@JW.xml") --xmlLoadFile("@JW.xml") --Load User Data
 	if xml then
 		local saveUser,savePass=xml:getAttribute("SaveUser"),xml:getAttribute("SavePass") --Get user's saved username and password
 		if saveUser~="" then
@@ -37,7 +41,7 @@ end)
 function normalWin()
 	LoginPanel = GuiWindow(left,top, 382, 275, "JW137: Login Panel", false)
 	LoginPanel:setSizable(false)
-	LoginPanel:SetMovable(false)
+	LoginPanel:setMovable(false)
 	showCursor(true)
 
 	GuiLabel(50, 73, 71, 16, "Username:", false,LoginPanel)
@@ -132,12 +136,12 @@ end
 ---Additional---
 addEventHandler("onClientGUIClick",guiRoot,function(btn)
 	if btn=="left" then
-		guiSetInputEnabled(if source:getType()=="gui-edit" then true else false end)
-		--[[if source.getType()=="gui-edit" then
+		--guiSetInputEnabled(ifsource:getType()=="gui-edit" then true else false end)
+		if source:getType()=="gui-edit" then
 			guiSetInputEnabled(true)
 		else
 			guiSetInputEnabled(false)
-		end]]
+		end
 		if(source==Login)then
 			triggerServerEvent("JW.Services",localPlayer,Login:getText(),Username:getText(),Password:getText())
 		elseif(source==Register)then
@@ -156,31 +160,31 @@ addEventHandler("onClientGUIClick",guiRoot,function(btn)
 	end
 end,true)
 
-addEvent("JW.Services",true)
 addEventHandler("JW.Services",root,function(typ,reason,com)
-	optWin(typ,reason)
 	if isElement(optWind) then
 		optWind:destroy()
 	end
-	local xml = XML:Load("@JW.xml")
+	local xml = XML.load("@JW.xml") --xmlLoadFile("@JW.xml")
 	if typ=="success" then
+		optWin(typ,reason)
 		removeEventHandler("onClientKey",root,lgin)
 		showCursor(false)
 		if isElement(pic) then
 			pic:destroy()
 		end
-		xml:setAttribute("SaveUser",if UsernameSave:getSelected() then Username:getText() else "" end)
-		--[[if UsernameSave.getSelected()then
-			xml.setAttribute("SaveUser",Username.getText())
+		
+		--xml:setAttribute("SaveUser",if UsernameSave:getSelected() then Username:getText() else "" end)
+		if UsernameSave:getSelected()then
+			xml:setAttribute("SaveUser",Username:getText())
 		else
-			xmlNodeSetAttribute(xml,"SaveUser","")
-		end]]
-		xml:setAttribute("SavePass",if PasswordSave:getSelected() then Password:getText() else "" end)
-		--[[if PasswordSave.getSelected()then
-			xml.setAttribute("SavePass",Password.getText())
+			xml:setAttribute("SaveUser","")
+		end
+		--xml:setAttribute("SavePass",if PasswordSave:getSelected() then Password:getText() else "" end)
+		if PasswordSave:getSelected()then
+			xml:setAttribute("SavePass",Password:getText())
 		else
-			xml.setAttribute("SavePass","")
-		end]]
+			xml:setAttribute("SavePass","")
+		end
 		if AutoLogin:getSelected()then
 			xml:setAttribute("AutoLogin","true")
 			xml:setAttribute("SaveUser",Username:getText())
@@ -198,6 +202,8 @@ addEventHandler("JW.Services",root,function(typ,reason,com)
 			Timer(removeCommandHandler,10000,1,"rauto")
 		end
 		xml:saveFile()
+		if(not showCursor(false))then showCursor(false) end
+		LoginPanel:setVisible(false)
 	elseif typ =="login" then
 		Timer(normalWin,3000,1)
 	elseif typ=="pic" then
