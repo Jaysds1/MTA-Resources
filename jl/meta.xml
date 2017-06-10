@@ -1,5 +1,5 @@
 <meta>
-    <info author="Jaysds1" name="Jay Login" description="Login, Register and auto login!" version="31.0.1" type="misc" />
+    <info author="Jaysds1" name="Jay Login" description="Login, Register and auto login!" version="31.0.2" type="misc" />
     <script src="client.lua" type="client" />
     <script src="server.lua" type="server" />
     
@@ -16,6 +16,5 @@
 		<right name="function.addAccount" access="true"/>
 		<right name="function.logIn" access="true"/>
 		<right name="function.logOut" access="true"/>
-		<right name="function.callRemote" access="true"/>
 	</aclrequest>
 </meta>
