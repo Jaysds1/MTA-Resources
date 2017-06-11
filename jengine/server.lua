@@ -1,35 +1,27 @@
-local engineKey,lightsKey = get("@jengine.engineKey"),get("@jengine.lightsKey")
+local engineKey,lightsKey = get("@engineKey"),get("@lightKey")
 thisResource = thisResource or getThisResource()
+resourceRoot = resourceRoot or getResourceRootElement()
 
 --Create functions for the engine state and light state
 function changeEngineState(source)
     if not source:isInVehicle() then return end
 	local sourceVehicle = source:getOccupiedVehicle()
 	sourceVehicle.engineState = not sourceVehicle.engineState
-	--setVehicleEngineState ( sourceVehicle, not getVehicleEngineState ( sourceVehicle ) )
 end
 function changeLightsState(source)
     if not source:isInVehicle() then return end
 	local sourceVehicle = source:getOccupiedVehicle()
-	sourceVehicle:overrideLights = if(sourceVehicle:getOverrideLights()~=2)then 2 else 1 end
-	--[[if getVehicleOverrideLights ( sourceVehicle ) ~= 2 then
-		setVehicleOverrideLights( sourceVehicle, 2 )
-	else
-		setVehicleOverrideLights( sourceVehicle, 1 )
-	end]]
+	sourceVehicle.overrideLights = 2/sourceVehicle.overrideLights
 end
 
 addEventHandler ( "onPlayerVehicleEnter",root,function( veh, driver, jacker )
     if driver ~= 0 or jacker then return end --Check if it's not the driver or if the vehicle is being jacked
-	--setVehicleEngineState ( theVehicle, true ) --Turn engine on
-	theVehicle.engineState = true
+	veh.engineState = true
 end)
-addEventHandler ( "onPlayerVehicleExit",root,function( theVehicle, driver, jacker )
+addEventHandler ( "onPlayerVehicleExit",root,function( veh, driver, jacker )
     if driver ~= 0 or jacker then return end --Check if it's not the driver or if the vehicle is being jacked
-	--setVehicleEngineState ( theVehicle, false ) --Turn off the engine
-	--setVehicleOverrideLights ( theVehicle, 1 ) --turn off the lights
-	theVehicle.engineState = false
-	theVehicle.overrideLights = 1
+	veh.engineState = false
+	veh.overrideLights = 1
 end)
 
 --Key Bindings
