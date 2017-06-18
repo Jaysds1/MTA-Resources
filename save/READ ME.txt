@@ -1,0 +1,10 @@
+This is a resource for saving the player position or if there in a car it saves the car...
+After Extracting this, Delete the save.zip folder else you'll get an error saying something fileWrite(2)...
+
+Just type in /save to open the new window
+or
+If your server is still in developing, just go around and put all the cars in the position you like and then
+type in /saveAV (AV = All Vehicles).
+
+Copyright ©2011 Jay Production All Rights Reserved with MTA
+by: Jaysds1
