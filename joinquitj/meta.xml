@@ -1,0 +1,12 @@
+<meta>
+	<info author="Jaysds1" name="Jay Join/Loggin/Quit" description="When a player joins/logs-in/quits a label/dx comes up" version="3.0.0" type="script" />
+	<script src="client.lua" type="client" />
+	<script src="server.lua" />
+	
+	<settings>
+		<setting name="Normal" value="true" description="True for the Normal gui or False for the DX."/>
+		<setting name="Join" value="true" description="True for Join or False for Login." />
+	</settings>
+	
+	<oop>true</oop>
+</meta>
