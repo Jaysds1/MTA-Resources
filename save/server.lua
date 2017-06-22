@@ -106,7 +106,7 @@ function av()
 	for _,v in ipairs(Element.getAllByType("vehicle"))do
 		local x,y,z = v.position
 		local rx,ry,rz = v.rotation
-		av += "createVehicle("..v.model..","..x..","..y..","..z..","..rx..","..ry..","..rz..","..v.plateText..")\n"
+		av = av.."createVehicle("..v.model..","..x..","..y..","..z..","..rx..","..ry..","..rz..","..v.plateText..")\n"
 	end
 	
 	file.pos = file.size

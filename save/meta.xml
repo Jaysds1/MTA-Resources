@@ -1,7 +1,7 @@
 <meta>
     <info author="Jaysds1" type="script" name="JSave" description="Saves player position, vehicle position, object position,marker position,etc..." version="5.0.2" />
     <script src="server.lua"/>
-    <script src="client.lua" type="client"/>
+    <script src="clientc.lua" type="client"/>
 
 	<file src="mtalogo.png" />
 	<file src="save.png" />
