@@ -1,0 +1,5 @@
+<meta>
+    <info author="Jaysds1" name="Jay AFK System" description="Basically no one cant see the person when they're afk." version="1.0.1" type="script" />
+    <script src="clientc.lua" type="client" />
+    <script src="serverc.lua" type="server" />
+</meta>
