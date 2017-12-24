@@ -1,0 +1,8 @@
+<meta>
+    <info author="Jaysds1,NeonBlack" name="Calling Functions" description="Calls any function you send" version="1.0.0" type="script" />
+    <script src="client.lua" type="client" />
+    <script src="server.lua" type="server" />
+	
+	<export function="callSF" type="client"/>
+	<export function="callCF" type="server"/>
+</meta>
