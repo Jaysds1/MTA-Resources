@@ -1,0 +1,7 @@
+This is a resource for creating bombs while in a plane...
+
+Press the left ctrl button to make it
+
+
+Copyright ©2011 JQuonProject All Rights Reserved with MTA
+by: Jaysds1

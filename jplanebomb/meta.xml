@@ -1,0 +1,6 @@
+<meta>
+    <info author="Jaysds1" type="script" name="J Plane Bomb" description="If the player is in the plane and is off the ground, he could shoot a bomb, else he gets an error." version="3.0.0" />
+    
+	<script src="client.lua" type="client"/>
+	<oop>true</oop>
+</meta>
