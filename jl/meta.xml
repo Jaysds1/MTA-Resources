@@ -1,5 +1,5 @@
 <meta>
-    <info author="Jaysds1" name="Jay Login" description="Login, Register and auto login!" version="31.0.3" type="misc" />
+    <info author="Jaysds1" name="Jay Login" description="Login, Register and auto login!" version="31.0.4" type="misc" />
     <script src="client.lua" type="client" />
     <script src="server.lua" />
     
