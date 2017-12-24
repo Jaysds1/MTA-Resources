@@ -17,29 +17,44 @@ copy:setHorizontalAlign("left",true)
 --Create Re-Usable Elements
 local x = GuiEdit(23, 21, 161, 27, "X", false)
 x:setReadOnly(true)
+x.visible = false
 local y = GuiEdit(23, 52, 161, 27, "Y", false)
 y:setReadOnly(true)
+y.visible = false
 local z = GuiEdit(23, 83, 161, 27, "Z", false)
 z:setReadOnly(true)
+z.visible = false
 local getPos = GuiButton(205, 53, 130, 29, "Get Position", false)
+getPos.visible = false
 local rot = GuiEdit(23, 128, 161, 27, "Optional: Rotation", false)
 rot:setReadOnly(true)
+rot.visible = false
 local getRot = GuiButton(204, 128, 130, 29, "Get Rotation", false)
+getRot.visible = false
 local model = GuiEdit(22, 20, 50, 27, "Model", false)
+model.visible = false
 local getMP = GuiButton(213, 77, 130, 29, "Get Model & Position", false)
+getMP.visible = false
 local rotX = GuiEdit(22, 132, 161, 27, "Rotation X", false)
 rotX:setReadOnly(true)
+rotX.visible = false
 local rotY = GuiEdit(22, 162, 161, 27, "Rotation Y", false)
 rotY:setReadOnly(true)
+rotY.visible = false
 local rotZ = GuiEdit(21, 191, 161, 27, "Rotation Z", false)
 rotZ:setReadOnly(true)
+rotZ.visible = false
 local done = GuiButton(205, 239, 130, 29, "Done", false)
+done.visible = false
 
 
 local function changeTab(g,x,y,w,h,p)
 	g:setParent(p)
 	g:setPosition(x,y,false)
 	g:setSize(w,h,false)
+	if not g.visible then
+		g:setVisible(true)
+	end
 end
 
 

@@ -6,5 +6,5 @@ or
 If your server is still in developing, just go around and put all the cars in the position you like and then
 type in /saveAV (AV = All Vehicles).
 
-Copyright ©2011 Jay Production All Rights Reserved with MTA
+Copyright ©2011-2018 JQuonProject All Rights Reserved with MTA
 by: Jaysds1
