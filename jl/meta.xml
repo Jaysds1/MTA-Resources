@@ -1,20 +1,25 @@
 <meta>
     <info author="Jaysds1" name="Jay Login" description="Login, Register and auto login!" version="31.0.3" type="misc" />
     <script src="client.lua" type="client" />
-    <script src="server.lua" type="server" />
+    <script src="server.lua" />
     
     <!-- IMAGES -->
     <!--<file src=".png" />-->
     <file src="example.png" />
+	
+	<!-- Settings -->
 	<settings>
 		<setting name="@picShow" value="false" accept="true,false" />
 		<setting name="@picPath" value="example.png" />
+		<setting name=".disbaleChat" value="true" accept="true,false" />
 	</settings>
 	
-	<oop>true</oop>
+	<!-- ACL Requests -->
 	<aclrequest>
 		<right name="function.addAccount" access="true"/>
 		<right name="function.logIn" access="true"/>
 		<right name="function.logOut" access="true"/>
 	</aclrequest>
+	
+	<oop>true</oop>
 </meta>

@@ -111,7 +111,8 @@ end)
 
 addEventHandler("onPlayerChat",root,function()
 	local acc = source.account
-	if acc.isGuest() or not acc then
+	if acc:isGuest() or not acc then
+		if get("@jl.disableChat") == "true" then return end
 		cancelEvent(true,"YOU HAVE TO BE LOGGED-IN TO CHAT!")
 		outputChatBox("YOU HAVE TO BE LOGGED-IN TO CHAT!",source,255,0,0)
 	end
