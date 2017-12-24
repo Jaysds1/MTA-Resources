@@ -1,5 +1,5 @@
 <meta>
-	<info name="JEngine" author="Jaysds1" type="misc" description="Turns the vehicle On when the player enters and Turns the vehicle Off when they leave" version="5.0.1" />
+	<info name="JEngine" author="Jaysds1" type="misc" description="Turns the vehicle On when the player enters and Turns the vehicle Off when they leave" version="5.0.2" />
 	<script src="server.lua" />
 	
 	<settings>
