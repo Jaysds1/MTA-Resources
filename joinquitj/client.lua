@@ -11,6 +11,9 @@ local isJoin = true
 
 thisResource = thisResource or getThisResource()
 
+addEvent("login",true)
+addEvent("JW.Service",true)
+
 addEventHandler("onClientResourceStart",resourceRoot,function(res)
 	if res~=thisResource then return end
 	triggerServerEvent("JW.Service",root,"ready")
@@ -35,7 +38,9 @@ end
 
 addCommandHandler("t",function()
 	local tst = GuiLabel(left,top,width,height,"Test: "..localPlayer.name,false)
-	Timer(tst:destroy,7000,1)
+	Timer(function()
+		tst:destroy()
+	end,7000,1)
 end)
 
 local jon,jPn
@@ -49,7 +54,9 @@ addEventHandler("onClientPlayerJoin",root,function()
 		else
 			jon = GuiLabel(left,top,width,height,"Joined: "..name,false)
 			jon:setColor(0,100,0)
-			jPn = Timer(jon:destroy,7000,1)
+			jPn = Timer(function()
+				jon:destroy()
+			end,7000,1)
 		end
 	else
 		joinName = name
@@ -60,7 +67,6 @@ addEventHandler("onClientPlayerJoin",root,function()
 end)
 
 local log,lPn
-addEvent("login",true)
 addEventHandler("login",root,function(name)
 	if isJoin or isJoin~=false then return end
 	if isNormal then
@@ -70,7 +76,9 @@ addEventHandler("login",root,function(name)
 		else
 			log = GuiLabel(left,top,width,height,"Logged-In: "..name,false)
 			log:setColor(0,100,0)
-			lPn = Timer(log:destroy,7000,1)
+			lPn = Timer(function()
+				log:destroy()
+			end,7000,1)
 		end
 	else
 		loginName = name
@@ -90,7 +98,9 @@ addEventHandler("onClientPlayerQuit",root,function(reason)
 		else
 			lev = GuiLabel(left,top+100,width,height,"Left: "..name.."["..reason.."]",false)
 			lev:setColor(100,0,0)
-			lv = Timer(lev:destroy,7000,1)
+			lv = Timer(function()
+				lev:destroy()
+			end,7000,1)
 		end
 	else
 		quitName = name
@@ -101,7 +111,6 @@ addEventHandler("onClientPlayerQuit",root,function(reason)
 end)
 
 --Checking
-addEvent("JW.Service",true)
 addEventHandler("JW.Service",root,function(guityp,typ)
 	isNormal = guityp
 	isJoin = typ

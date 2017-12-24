@@ -4,8 +4,8 @@
 	<script src="server.lua" />
 	
 	<settings>
-		<setting name="Normal" value="true" description="True for the Normal gui or False for the DX."/>
-		<setting name="Join" value="true" description="True for Join or False for Login." />
+		<setting name="Normal" value="true" description="True for the Normal gui or False for the DX." accept="true,false"/>
+		<setting name="Join" value="true" description="True for Join or False for Login." accept="true,false"/>
 	</settings>
 	
 	<oop>true</oop>
