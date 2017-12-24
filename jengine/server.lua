@@ -1,4 +1,4 @@
-local engineKey,lightsKey = get("@engineKey"),get("@lightKey")
+local engineKey,lightsKey = get("#engineKey"),get("#lightKey")
 thisResource = thisResource or getThisResource()
 resourceRoot = resourceRoot or getResourceRootElement()
 
