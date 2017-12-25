@@ -1,0 +1,6 @@
+<meta>
+    <info author="Jaysds1" name="Pickup Teller" description="Tells everyone in the server what the player picked up" version="2.0.0" type="script" />
+	
+    <script src="server.lua"/>
+	<oop>true</oop>
+</meta>
