@@ -1,0 +1,28 @@
+<meta>
+	<info name="Jay Housing System" author="Jaysds1" type="script" version="1.2.0" />
+	
+	<script src="client.lua" type="client"/>
+	<script src="server.lua"/>
+	
+	<settings>
+		<!-- Coming Soon <setting name="@type" value="Freeroam" friendlyname="Gamemode" group="Admin" accept="Freeroam,RPG,RP" desc="The type of Housing System you want." /> -->
+		<setting name="@cmdName" value="createHouse" friendlyname="Command Name" group="Admin" desc="The command set for every everyone that has access to it." />
+		
+		<setting name="@dbType" value="sqlite" friendlyname="Database Type" group="Admin" accept="sqlite,mysql" desc="The database you want to store your houses in." />
+		<!-- MySQL -->
+		<setting name="@dbName" value="" friendlyname="MySQL Database Name" group="Admin" desc="The Database Name for your MySQL." />
+		<setting name="@dbHost" value="" friendlyname="MySQL Host" group="Admin" desc="The Database IP/Host for your MySQL." />
+		<setting name="@dbPort" value="" friendlyname="MySQL Port" group="Admin" desc="The Port used to connect to your MySQL. (optional)" />
+		<setting name="@dbUnixSoc" value="" friendlyname="MySQL Unix Socket" group="Admin" desc="The Unix Socket needed to connect to your MySQL. (optional)" />
+		<setting name="@dbUser" value="" friendlyname="MySQL Username" group="Admin" desc="The Username used to connect to your MySQL." />
+		<setting name="@dbPass" value="" friendlyname="MySQL Password" group="Admin" desc="The Password used to connect to your MySQL." />
+		
+		<!--Client Housing GUI Properties -->
+		<setting name="@guestkey" value="true" friendlyname="Guest Key" group="Admin" accept="true,false" desc="Whether you want Guest Key enabled or not." />
+		<setting name="@tourit" value="true" friendlyname="Tour it" group="Admin" accept="true,false" desc="Whether you want Tour it enabled or not." />
+		
+		<setting name="@guestlen" value="4" friendlyname="Guest Key Length" group="Admin" desc="The length of the guest key." />
+	</settings>
+	
+	<oop>true</oop>
+</meta>
