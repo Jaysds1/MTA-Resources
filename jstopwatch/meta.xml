@@ -1,5 +1,5 @@
 <meta>
-	<info name="Jay Stop Watch" author="Jaysds1" type="script" version="2.0.0" />
+	<info name="Jay Stop Watch" author="Jaysds1" type="script" version="3.0.0" />
 	
 	<script src="client.lua" type="client"/>
 	
