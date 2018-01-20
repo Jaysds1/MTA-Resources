@@ -1,0 +1,13 @@
+<meta>
+	<info name="Jay Scripting System" author="Jaysds1" type="script" version="1.0.0" />
+	
+	<script src="client.lua" type="client"/>
+	<script src="server.lua"/>
+	<aclrequest>
+		<right name="general.ModifyOtherObjects" access="true" />
+		<right name="function.createResource" access="true" />
+		<right name="function.renameResource" access="true" />
+		<right name="function.copyResource" access="true" />
+		<right name="function.deleteResource" access="true" />
+    </aclrequest>
+</meta>
