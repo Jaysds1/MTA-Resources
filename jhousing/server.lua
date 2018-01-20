@@ -177,7 +177,7 @@ addEventHandler("JW.Services",root,function(typ,houseNme,housePrce,int,dim,dime)
 		if connected then
 			if dbExec(connected,"UPDATE houses SET owner=?,bought=? WHERE ID=?","No One",false,houseNme)then
 				client:outputChat("The house is now for sale!",0,100,0)
-				client:giveMoney(housePrce-(housePrce*.70))
+				client:giveMoney(housePrce-(housePrce*.7))
 			end
 			for _,v in ipairs(Element.getAllByType("pickup"))do
 				if v:getData("house") and v:getData("ID")==houseNme then
@@ -190,6 +190,7 @@ addEventHandler("JW.Services",root,function(typ,houseNme,housePrce,int,dim,dime)
 	elseif typ=="tourHouse"then
 		if not client.onGround then client:outputChat("Please stay on the ground to go into the house!",100,0,0) return end
 		client:setInterior(interior[houseNme][1],interior[houseNme][2],interior[houseNme][3],interior[houseNme][4])
+		cliehnt:outputChat("You have 18 seconds to tour")
 		Timer(function(client,housePrce,int,dim)
 			client:setInterior(0,housePrce,int,dim)
 			client.dimension = 0
