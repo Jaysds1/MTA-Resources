@@ -13,7 +13,7 @@ addEventHandler("accessToJHouse",root,function(cmd,houseIDs)
 	loc=GuiLabel(50, 45, 200, 13,"Location: NIL,NIL", false,jhsWin)
 	addEventHandler("onClientRender",root,function()
 		x,y,z = getElementPosition(localPlayer)
-		loc.text = "Location: "..getZoneName(x,y,z,false)..","..getZoneName(x,y,z,true))
+		loc.text = "Location: "..getZoneName(x,y,z,false)..","..getZoneName(x,y,z,true)
 	end)
 	GuiLabel(50, 65, 71, 16, "House Name: ", false,jhsWin)
 	GuiLabel(50, 85, 61, 16, "House Price:", false,jhsWin)
@@ -178,7 +178,7 @@ addEventHandler("onClientGUIClick",guiRoot,function()
 	if source == buyHouse then
 		if localPlayer.money<pickup:getData("housePrice") then
 			hMessage.text = "You don't have enough money!"
-			Timer(hMessage:setText,7000,1,"")
+			Timer(function() hMessage.text = "" end,7000,1)
 			return
 		end
 		triggerServerEvent("JW.Services",localPlayer,"buyHouse",pickup:getData("ID"),pickup:getData("housePrice"))
