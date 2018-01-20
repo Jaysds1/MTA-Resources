@@ -1,5 +1,5 @@
 <meta>
-	<info name="Jay Housing System" author="Jaysds1" type="script" version="1.2.0" />
+	<info name="Jay Housing System" author="Jaysds1" type="script" version="1.2.2" />
 	
 	<script src="client.lua" type="client"/>
 	<script src="server.lua"/>
